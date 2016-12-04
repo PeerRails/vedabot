@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.telegram.org/bot123:567/getMe
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.1 (2016-11-09))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 04 Dec 2016 19:08:57 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.0
+      Date:
+      - Sun, 04 Dec 2016 19:08:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '154'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Expose-Headers:
+      - Content-Length,Content-Type,Date,Server,Connection
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"result":{"id":1,"first_name": "veda","username":"vedatestbot"}}'
+    http_version:
+  recorded_at: Sun, 04 Dec 2016 19:08:58 GMT
+recorded_with: VCR 3.0.3

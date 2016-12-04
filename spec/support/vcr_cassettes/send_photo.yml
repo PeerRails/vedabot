@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.telegram.org/bot123:567/sendPhoto
+    body:
+      encoding: UTF-8
+      string: !binary |-
+        LS0zZjhkNzczODA0MmQ3ZTA3Yjc5MmUzMzg5ZjkxZGFiM2FiYjlkZTc5DQpD
+        b250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImNoYXRfaWQi
+        DQoNCi0xMDAxMDYwMzEyNTAxDQotLTNmOGQ3NzM4MDQyZDdlMDdiNzkyZTMz
+        ODlmOTFkYWIzYWJiOWRlNzkNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0t
+        ZGF0YTsgbmFtZT0iY2FwdGlvbiINCg0KVGVzdA0KLS0zZjhkNzczODA0MmQ3
+        ZTA3Yjc5MmUzMzg5ZjkxZGFiM2FiYjlkZTc5DQpDb250ZW50LURpc3Bvc2l0
+        aW9uOiBmb3JtLWRhdGE7IG5hbWU9InBob3RvIjsgZmlsZW5hbWU9InRlc3Qu
+        cG5nIjsgbW9kaWZpY2F0aW9uLWRhdGU9IldlZCwgMjAgQXVnIDIwMTQgMjM6
+        MDM6MDMgKzA0MDAiOyByZWFkLWRhdGU9IlN1biwgMDQgRGVjIDIwMTYgMjI6
+        MDQ6MDAgKzAzMDAiDQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KDQqJUE5H
+        DQoaCgAAAA1JSERSAAAEAAAAAOQIBAAAAKyOno8AAAAgY0hSTQAAeiUAAICD
+        AAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAAJiS0dEAP+Hj8y/AAAA
+        CXBIWXMAAAsTAAALEwEAmpwYAAAACXZwQWcAAAQAAAAA5ADbj6/yAAAHr0lE
+        QVR42u3bTahcZx3H8d/cmZubpEkMSePCxkVshYJipKCIgmgRQdCVC6GgK7Gg
+        m7pyVS1uKi4Ead24iHuXvixaClbchCJKbX0h1r5R0sb0Lb23t7mZmTsuBBei
+        0PPMZGbO/X8++yfPOc955sz3nDtJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+N8GPT/6k9lyEQHoqb28
+        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
+        ZGFiM2FiYjlkZTc5LS0NCg0K
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.1 (2016-11-09))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 04 Dec 2016 19:09:54 GMT
+      Content-Type:
+      - multipart/form-data; boundary=3f8d7738042d7e07b792e3389f91dab3abb9de79
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.0
+      Date:
+      - Sun, 04 Dec 2016 19:09:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '757'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Expose-Headers:
+      - Content-Length,Content-Type,Date,Server,Connection
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"result":{"message_id":1,"from":{"id":1,"first_name":"veda","username":"vedatestbot"},"chat":{"id":-1,"title":"Test","username":"test","type":"channel"},"date":1480878595,"photo":[{"file_id":"AgADAgADq6cxG0_wlAvfTx3qelJJZyUJSw0ABIgNe9IY11oIkB8CAAEC","file_size":803,"width":90,"height":20},{"file_id":"AgADAgADq6cxG0_wlAvfTx3qelJJZyUJSw0ABBPH3__sFqdCjx8CAAEC","file_size":3363,"width":320,"height":71},{"file_id":"AgADAgADq6cxG0_wlAvfTx3qelJJZyUJSw0ABMUlfc_3csv_jh8CAAEC","file_size":6969,"width":800,"height":178},{"file_id":"AgADAgADq6cxG0_wlAvfTx3qelJJZyUJSw0ABOSN6HdszylqjR8CAAEC","file_size":8407,"width":1024,"height":228}],"caption":"Test"}}'
+    http_version:
+  recorded_at: Sun, 04 Dec 2016 19:09:55 GMT
+recorded_with: VCR 3.0.3

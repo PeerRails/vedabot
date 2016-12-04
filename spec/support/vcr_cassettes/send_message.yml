@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.telegram.org/bot123:567/sendMessage
+    body:
+      encoding: UTF-8
+      string: chat_id=-1001060312501&text=Test
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.2.4, ruby 2.3.1 (2016-11-09))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 04 Dec 2016 19:08:58 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.0
+      Date:
+      - Sun, 04 Dec 2016 19:08:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '295'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Expose-Headers:
+      - Content-Length,Content-Type,Date,Server,Connection
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"result":{"message_id":1,"from":{"id":1,"first_name":"veda","username":"vedatestbot"},"chat":{"id":-1,"title":"Title","username":"test","type":"channel"},"date":1480878539,"text":"Test"}}'
+    http_version:
+  recorded_at: Sun, 04 Dec 2016 19:08:58 GMT
+recorded_with: VCR 3.0.3
