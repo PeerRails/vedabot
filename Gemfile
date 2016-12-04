@@ -2,6 +2,12 @@
 source "https://rubygems.org"
 
 gem "telegram-bot"
-gem "rspec"
-gem "vcr"
-gem "webmock"
+gem "twitter"
+
+group :test do
+	gem "rspec"
+	gem "vcr"
+	gem "webmock"
+	gem 'simplecov', :require => false
+end
+

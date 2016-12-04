@@ -1,5 +1,8 @@
 # Veda Bot
 
+[![Code Climate](https://codeclimate.com/github/PeerRails/vedabot/badges/gpa.svg)](https://codeclimate.com/github/PeerRails/vedabot)
+[![Test Coverage](https://codeclimate.com/github/PeerRails/vedabot/badges/coverage.svg)](https://codeclimate.com/github/PeerRails/vedabot/coverage)
+
 Бот для Армяно-Арийских вед.
 Следит за твитами и постит их обратно в канал телеграма.
 
