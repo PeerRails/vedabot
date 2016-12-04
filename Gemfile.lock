@@ -23,6 +23,8 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     buftok (0.2.0)
     builder (3.2.2)
+    codeclimate-test-reporter (1.0.3)
+      simplecov
     concurrent-ruby (1.0.2-java)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -113,6 +115,7 @@ PLATFORMS
   java
 
 DEPENDENCIES
+  codeclimate-test-reporter (~> 1.0.0)
   rspec
   simplecov
   telegram-bot
