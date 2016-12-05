@@ -25,6 +25,7 @@ GEM
     builder (3.2.2)
     codeclimate-test-reporter (1.0.3)
       simplecov
+    concurrent-ruby (1.0.2)
     concurrent-ruby (1.0.2-java)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -45,18 +46,24 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
     httpclient (2.8.2.4)
     i18n (0.7.0)
+    json (1.8.3)
     json (1.8.3-java)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
+    mini_portile2 (2.1.0)
     minitest (5.10.1)
     multipart-post (2.0.0)
     naught (1.1.0)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
     nokogiri (1.6.8.1-java)
+    pg (0.19.0)
     public_suffix (2.0.4)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -80,6 +87,7 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     safe_yaml (1.0.4)
+    sequel (4.41.0)
     simple_oauth (0.3.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
@@ -90,6 +98,7 @@ GEM
       actionpack (>= 4.0, < 5.1)
       activesupport (>= 4.0, < 5.1)
       httpclient (~> 2.7)
+    thread_safe (0.3.5)
     thread_safe (0.3.5-java)
     twitter (5.16.0)
       addressable (~> 2.3)
@@ -104,7 +113,10 @@ GEM
       simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
     unf (0.1.4-java)
+    unf_ext (0.0.7.2)
     vcr (3.0.3)
     webmock (2.1.0)
       addressable (>= 2.3.6)
@@ -113,10 +125,13 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   codeclimate-test-reporter (~> 1.0.0)
+  pg
   rspec
+  sequel
   simplecov
   telegram-bot
   twitter
