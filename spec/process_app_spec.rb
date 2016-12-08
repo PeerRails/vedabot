@@ -16,8 +16,8 @@ RSpec.describe ProcessApp do
     end
 
     it "should process_timeline" do
-      #client = ProcessApp.new(@tokens)
-      #expect{ client.process_tweet }.to raise_error NotImplementedError
+      client = ProcessApp.new(@tokens)
+      expect{ client.process_tweet }.to raise_error NotImplementedError
     end
   end
 end

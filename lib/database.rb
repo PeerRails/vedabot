@@ -1,7 +1,7 @@
 require 'sequel'
 require 'pg'
 
-class Database
+class DatabaseAdapter
   def initialize(db_url)
     @db = Sequel.connect(db_url)
     migrate unless @db.table_exists?(:memes)
@@ -21,14 +21,17 @@ class Database
   end
 
   # @param source [Hash] consist of tweetid, text and filepath
+  # @return rowid [Integer]
   def add_meme(source)
     return false if source.nil? || source.empty?
-    # prepare source TODO
-    # download photo
+    # Source rendering will process ProcessApp or MessageAdapter
     source["created_at"] = DateTime.now
     @db[:memes].insert(source)
   end
 
+  # Get record from database
+  # @param id [Integer]
+  # @return [Hash]
   def get_meme(id)
     @db[:memes].first(id: id)
   end

@@ -9,7 +9,7 @@ class ProcessApp
                               access_token_secret: tokens[:access_token_secret],
                               consumer_key: tokens[:consumer_key],
                               consumer_secret: tokens[:consumer_secret]})
-    @db = Database.new(tokens[:database])
+    @db = DatabaseAdapter.new(tokens[:database])
   end
 
   def process_timeline(user)

@@ -4,20 +4,20 @@
 [![Test Coverage](https://codeclimate.com/github/PeerRails/vedabot/badges/coverage.svg)](https://codeclimate.com/github/PeerRails/vedabot/coverage)
 [ ![Codeship Status for PeerRails/vedabot](https://app.codeship.com/projects/88a084c0-9c97-0134-1577-16a5a77d0de5/status?branch=master)](https://app.codeship.com/projects/188419)
 
-¿¿¿¿¿¿¿, ¿¿¿¿¿ ¿¿¿¿¿¿¿¿¿¿ ¿¿¿¿¿ ¿¿ Twitter ¿ ¿¿¿¿¿ ¿ ¿¿¿¿¿¿ telegram
-¿¿¿¿¿¿¿¿¿ ¿¿¿ [[@Ariiskie\_vedi](https://twitter.com/Ariiskie_vedi)]
+Ğ’ĞµĞ´Ğ°Ğ±Ğ¾Ñ‚, ÑƒĞ¼ĞµĞµÑ‚ ĞºĞ¾Ğ¿Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ñ‚Ğ²Ğ¸Ñ‚Ñ‹ Ğ¸Ğ· Twitter Ğ² Ğ¿Ğ¾ÑÑ‚Ñ‹ Ğ² ĞºĞ°Ğ½Ğ°Ğ»Ğµ telegram
+Ğ¡Ğ¿ĞµÑ†Ğ·Ğ°ĞºĞ°Ğ· Ğ´Ğ»Ñ [[@Ariiskie\_vedi](https://twitter.com/Ariiskie_vedi)]
 
-¿¿¿¿¿¿¿¿¿¿:
+Ğ¢Ñ€ĞµĞ±Ğ¾Ğ²Ğ°Ğ½Ğ¸Ñ:
 
 * Ruby 2.3.1 / Jruby 9.1.6.0
 * Telegram Bot Token
 * Twitter Tokens
-* Postgresql 9.5+ 
+* Postgresql 9.5+
 
-## ¿¿¿¿¿¿¿¿¿
+## Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²ĞºĞ°
 
-¿¿¿¿¿¿¿¿¿¿ ruby ¿¿¿¿¿¿ 2.3.1
-¿¿¿¿¿¿¿¿¿¿¿¿ ¿¿¿¿¿¿¿¿¿¿¿
-¿¿¿¿¿¿¿¿¿ `gem install bundler && bundle install`
+Ğ£ÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒ ruby Ğ²ĞµÑ€ÑĞ¸Ğ¸ 2.3.1
+Ğ¡ĞºĞ»Ğ¾Ğ½Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ñ€ĞµĞ¿Ğ¾Ğ·Ğ¸Ñ‚Ğ¾Ñ€Ğ¸Ğ¹
+Ğ—Ğ°Ğ¿ÑƒÑÑ‚Ğ¸Ñ‚ÑŒ `gem install bundler && bundle install`
 `ruby app.rb`
-¿¿¿¿¿¿!
+Ğ“Ğ¾Ñ‚Ğ¾Ğ²Ğ¾!
