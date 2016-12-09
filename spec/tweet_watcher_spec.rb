@@ -18,7 +18,7 @@ RSpec.describe TweetWatcher do
 				expect(timeline.count).to eql(20)
 			end
 		end
-		
+
 		it "should read timeline of user since this id" do
 			VCR.use_cassette("user_timeline_since_id") do
 				timeline = watcher.user_timeline("Ariiskie_vedi", {since_id: 805306097091362816})

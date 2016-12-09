@@ -1,23 +1,25 @@
 require 'vedabot'
 require 'tweet_watcher'
 require 'database'
+require 'meme_factory'
+require 'open-uri'
 
 class ProcessApp
   def initialize(tokens)
-    @telega = VedaBot.new(tokens[:bot_token])
-    @twee = TweetWatcher.new({access_token: tokens[:access_token],
-                              access_token_secret: tokens[:access_token_secret],
-                              consumer_key: tokens[:consumer_key],
-                              consumer_secret: tokens[:consumer_secret]})
-    @db = DatabaseAdapter.new(tokens[:database])
+    @tokens = tokens
   end
 
-  def process_timeline(user)
-    @since_id = nil if @since_id.nil?
-    tweets = @twee.user_timeline(user, {since_id: @since_id, count: 100, trim_user: true})
+  # Process user's timeline
+  # @param user [String] username
+  # @param options [Hash] map of options
+  def process_timeline(user, options={since_id: nil})
+    @since_id = options[:since_id]
+    tweets = twitter.user_timeline(user, {since_id: @since_id, count: 25, trim_user: true})
     process_tweets(tweets)
   end
 
+  # Process list of tweets recursively
+  # @param tweets [Array]
   def process_tweets(tweets)
     return false if tweets.empty?
     head, *tail = tweets
@@ -25,10 +27,63 @@ class ProcessApp
     process_tweets(tail) unless tail.nil?
   end
 
+  # Process tweet
+  # @param tweet [Hash|Tweet]
   def process_tweet(tweet)
-    raise NotImplementedError
-    # Prepare source
-    # add to queue
-    # exit
+    return false if tweet.nil?
+    meme = prepare_source(tweet)
+    add_to_queue( meme )
   end
+
+  private
+
+    # Adapt source for adding to database
+    # @param source [any]
+    # @return [Hash]
+    def prepare_source(source)
+      meme = MemeFactory.new(source)
+      file = file_download(meme.files[0])
+      return {
+        text: meme.text,
+        filepath: file,
+        tweetid: meme.sourceid
+      }
+    end
+
+    # Download file from url
+    # @param url [String]
+    # @return path [String]
+    def file_download(url)
+      return "" if url.nil? || url.empty?
+      path = "/tmp/vedafiles/#{url.split('/').last}"
+      File.open(path, "wb") do |file|
+        file.write open(url).read
+      end
+      return path
+    end
+
+    # Add to queue parsed source
+    # @param item [Hash]
+    # @return rowid [Integer]
+    def add_to_queue(item)
+      db.add_meme(item)
+    end
+
+    # Get VedaBot (Telegram) connection
+    def telegram
+      VedaBot.new(@tokens[:bot_token])
+    end
+
+    # Get TweetWatcher (Twitter) connectrion
+    def twitter
+      TweetWatcher.new({access_token: @tokens[:access_token],
+                              access_token_secret: @tokens[:access_token_secret],
+                              consumer_key: @tokens[:consumer_key],
+                              consumer_secret: @tokens[:consumer_secret]})
+    end
+
+    # Get DatabaseAdapter (Database) connection
+    def db
+      DatabaseAdapter.new(@tokens[:database])
+    end
 end
