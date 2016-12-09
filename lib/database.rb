@@ -12,7 +12,7 @@ class DatabaseAdapter
       primary_key :id
       String :text
       String :filepath
-      Integer :tweetid
+      Bignum :tweetid
       TrueClass :queue, default: true
       DateTime :created_at
 

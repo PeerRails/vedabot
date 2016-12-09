@@ -12,9 +12,8 @@ class ProcessApp
   # Process user's timeline
   # @param user [String] username
   # @param options [Hash] map of options
-  def process_timeline(user, options={since_id: nil})
-    @since_id = options[:since_id]
-    tweets = twitter.user_timeline(user, {since_id: @since_id, count: 25, trim_user: true})
+  def process_timeline(user, options={count: 25, trim_user: true})
+    tweets = twitter.user_timeline(user, options)
     process_tweets(tweets)
   end
 
@@ -35,6 +34,18 @@ class ProcessApp
     add_to_queue( meme )
   end
 
+  # Download file from url
+  # @param url [String]
+  # @return path [String]
+  def file_download(url)
+    return "" if url.nil? || url.empty?
+    path = "/tmp/vedafiles/#{url.split('/').last}"
+    File.open(path, "wb") do |file|
+      file.write open(url).read
+    end
+    return path
+  end
+
   private
 
     # Adapt source for adding to database
@@ -50,17 +61,7 @@ class ProcessApp
       }
     end
 
-    # Download file from url
-    # @param url [String]
-    # @return path [String]
-    def file_download(url)
-      return "" if url.nil? || url.empty?
-      path = "/tmp/vedafiles/#{url.split('/').last}"
-      File.open(path, "wb") do |file|
-        file.write open(url).read
-      end
-      return path
-    end
+
 
     # Add to queue parsed source
     # @param item [Hash]

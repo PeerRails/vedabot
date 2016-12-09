@@ -9,11 +9,11 @@ require 'vcr'
 RSpec.describe ProcessApp do
   describe "main" do
     before do
-      @tokens = {bot_token: "1",
-      consumer_key: "2",
-      consumer_secret: "3",
-      access_token: "4",
-      access_token_secret: "55555",
+      @tokens = {bot_token: "",
+      consumer_key: "",
+      consumer_secret: "",
+      access_token: "",
+      access_token_secret: "",
       database: ENV["DATABASE_URL"]}
       @client = ProcessApp.new(@tokens)
       @db = Sequel.connect(ENV['DATABASE_URL'])
@@ -36,11 +36,19 @@ RSpec.describe ProcessApp do
       expect(@db[:memes].count).to be > 3
     end
 
-    #it "should process timeline" do
-      #VCR.use_cassette("process_timeline") do
-        #@client.process_timeline("Ariiskie_vedi")
-        #expect(@db[:memes].count).to be > 20
-      #end
-    #end
+    it "should process timeline" do
+      VCR.use_cassette("process_timeline") do
+        @client.process_timeline("Ariiskie_vedi")
+        expect(@db[:memes].count).to be > 20
+      end
+    end
+
+    it "should download file" do
+      File.delete("/tmp/vedafiles/CzPgfcEWQAQisK4.jpg") if File.exist?("/tmp/vedafiles/CzPgfcEWQAQisK4.jpg")
+      VCR.use_cassette("file_download") do
+        @client.file_download("https://pbs.twimg.com/media/CzPgfcEWQAQisK4.jpg")
+        expect(File.exist?("/tmp/vedafiles/CzPgfcEWQAQisK4.jpg"))
+      end
+     end
   end
 end
