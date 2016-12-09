@@ -36,11 +36,11 @@ RSpec.describe ProcessApp do
       expect(@db[:memes].count).to be > 3
     end
 
-    it "should process timeline" do
-      VCR.use_cassette("process_timeline") do
-        @client.process_timeline("Ariiskie_vedi")
-        expect(@db[:memes].count).to be > 20
-      end
-    end
+    #it "should process timeline" do
+      #VCR.use_cassette("process_timeline") do
+        #@client.process_timeline("Ariiskie_vedi")
+        #expect(@db[:memes].count).to be > 20
+      #end
+    #end
   end
 end
