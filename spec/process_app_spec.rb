@@ -56,5 +56,8 @@ RSpec.describe ProcessApp do
         expect{@client.post(-1001060312501)}.not_to raise_error
       end
     end
+    it "should return last meme from database" do
+      expect(@client.get_last).not_to be nil
+    end
   end
 end

@@ -9,6 +9,7 @@ module MemeAdapter
       sourceid: source.id,
       files: [media(source)]
     }
+    return meme
   end
 
   # Fetch media to files

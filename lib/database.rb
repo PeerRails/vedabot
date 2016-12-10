@@ -23,7 +23,7 @@ class DatabaseAdapter
   # @param source [Hash] consist of tweetid, text and filepath
   # @return rowid [Integer]
   def add_meme(source)
-    return false if source.nil? || source.empty?
+    return false if source.nil? || source.empty? || !@db[:memes].first(tweetid: source[:tweetid]).nil?
     source["created_at"] = DateTime.now
     @db[:memes].insert(source)
   end
@@ -35,10 +35,16 @@ class DatabaseAdapter
     @db[:memes].first(id: id)
   end
 
+  # Get last record
+  # @return [Hash]
+  def last_meme
+    @db[:memes].order(:id).last
+  end
+
   # Get next record in queue
   # @return [Hash]
   def next_que
-    @db[:memes].order(:tweetid).first(queue: true).to_hash
+    @db[:memes].order(:tweetid).first(queue: true)
   end
 
   # Remove record from queue

@@ -1,4 +1,4 @@
-require "meme_adapter"
+require_relative "meme_adapter"
 
 class MemeFactory
   include MemeAdapter

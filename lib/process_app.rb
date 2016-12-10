@@ -1,7 +1,7 @@
-require 'vedabot'
-require 'tweet_watcher'
-require 'database'
-require 'meme_factory'
+require_relative 'vedabot'
+require_relative 'tweet_watcher'
+require_relative 'database'
+require_relative 'meme_factory'
 require 'open-uri'
 
 class ProcessApp
@@ -55,7 +55,13 @@ class ProcessApp
       message = {chat_id: chatid, photo: File.new(meme[:filepath])}
       telegram.send_photo(message)
     end
-    db.remove_que(meme[:id])
+    db.remove_que(meme[:id]) unless meme.nil?
+  end
+
+  # Return last meme from database
+  # @return [Hash]
+  def get_last
+    db.last_meme
   end
 
   private

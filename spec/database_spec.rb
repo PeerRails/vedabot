@@ -50,5 +50,12 @@ RSpec.describe DatabaseAdapter do
       expect(queue.count).to eql(2)
     end
 
+    it "should get last meme" do
+      source = {tweetid: 4333333, text: "last", filepath: "damn_lost"}
+      db = DatabaseAdapter.new(ENV['DATABASE_URL'])
+      db.add_meme(source)
+      expect(db.last_meme[:text]).to eql("last")
+    end
+
   end
 end

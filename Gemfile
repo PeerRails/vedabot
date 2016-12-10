@@ -5,6 +5,7 @@ gem 'sequel'
 gem 'pg'
 gem "telegram-bot"
 gem "twitter"
+gem 'dotenv', :groups => [:development, :test]
 
 group :test do
 	gem "rspec"
