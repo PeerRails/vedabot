@@ -9,11 +9,11 @@ require 'vcr'
 RSpec.describe ProcessApp do
   describe "main" do
     before do
-      @tokens = {bot_token: "",
-      consumer_key: "",
-      consumer_secret: "",
-      access_token: "",
-      access_token_secret: "",
+      @tokens = {bot_token: "1",
+      consumer_key: "2",
+      consumer_secret: "3",
+      access_token: "4",
+      access_token_secret: "5",
       database: ENV["DATABASE_URL"]}
       @client = ProcessApp.new(@tokens)
       @db = Sequel.connect(ENV['DATABASE_URL'])
@@ -49,6 +49,12 @@ RSpec.describe ProcessApp do
         @client.file_download("https://pbs.twimg.com/media/CzPgfcEWQAQisK4.jpg")
         expect(File.exist?("/tmp/vedafiles/CzPgfcEWQAQisK4.jpg"))
       end
-     end
+    end
+    it "should post meme to telegram channel" do
+      VCR.use_cassette("post_telegram") do
+        @db[:memes].where("filepath = \'\' or filepath = \'damn\'").update(queue: false)
+        expect{@client.post(-1001060312501)}.not_to raise_error
+      end
+    end
   end
 end

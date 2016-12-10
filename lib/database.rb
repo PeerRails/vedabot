@@ -24,7 +24,6 @@ class DatabaseAdapter
   # @return rowid [Integer]
   def add_meme(source)
     return false if source.nil? || source.empty?
-    # Source rendering will process ProcessApp or MessageAdapter
     source["created_at"] = DateTime.now
     @db[:memes].insert(source)
   end
@@ -36,14 +35,20 @@ class DatabaseAdapter
     @db[:memes].first(id: id)
   end
 
+  # Get next record in queue
+  # @return [Hash]
   def next_que
-    @db[:memes].order(:tweetid).first(queue: true)
+    @db[:memes].order(:tweetid).first(queue: true).to_hash
   end
 
+  # Remove record from queue
+  # @return id [Integer]
   def remove_que(id)
     @db[:memes].where(id: id).update(queue: false)
   end
 
+  # Get all items from queue
+  # @return [Array]
   def get_que
     @db[:memes].where(queue: true)
   end

@@ -15,7 +15,7 @@ module MemeAdapter
   # @params source [any]
   # @return media_url [String]
   def media(source)
-    if source.media?
+    if source.media? && source.media.count == 1
       source.media[0].media_url.to_s
     else
       nil

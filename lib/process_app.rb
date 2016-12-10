@@ -46,6 +46,18 @@ class ProcessApp
     return path
   end
 
+  # Post meme to destination (telegram)
+  # from database queue
+  # @param chatid [Integer]
+  def post(chatid)
+    meme = db.next_que
+    unless meme.nil? or !File.exist?(meme[:filepath])
+      message = {chat_id: chatid, photo: File.new(meme[:filepath])}
+      telegram.send_photo(message)
+    end
+    db.remove_que(meme[:id])
+  end
+
   private
 
     # Adapt source for adding to database
@@ -60,8 +72,6 @@ class ProcessApp
         tweetid: meme.sourceid
       }
     end
-
-
 
     # Add to queue parsed source
     # @param item [Hash]

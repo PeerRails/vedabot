@@ -5,8 +5,8 @@ class VedaBot
 		raise "null token" if token.nil? or token.empty?
 		@token = token
 	end
-	
 	def getme
+
 		client.get_me
 	end
 
