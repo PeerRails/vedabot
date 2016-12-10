@@ -5,6 +5,7 @@ class DatabaseAdapter
   def initialize(db_url)
     @db = Sequel.connect(db_url, :max_connections => 100)
     migrate unless @db.table_exists?(:memes)
+    @db
   end
 
   def migrate
